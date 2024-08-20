@@ -15,3 +15,5 @@ axios запрос на сервере
     @trivago/prettier-plugin-sort-imports типизация претиер 
      prettier претиер 
       @types/js-cookie типизация для куки 
+
+      add prettier file and next config чтобы аватар из гугле и яндекс хорошо работало и  асинк функции для погружнение файл фото из серевере 
