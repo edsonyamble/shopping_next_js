@@ -33,4 +33,6 @@ axios запрос на сервере
 
 add constaants file там есть название сайта и дескриптион которы подключаем на layout tsx
 
-npm install react-hot-toast библиотека для toaster  
+npm install react-hot-toast библиотека для toaster 
+
+создание типов  shared file 
