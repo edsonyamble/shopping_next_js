@@ -3,6 +3,7 @@ import {GeistSans} from 'geist/font/sans';
 // import { Inter } from "next/font/google";
 import "./globals.scss";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/constants/seo.constants";
+import { Providers } from "./providers";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={GeistSans.variable} >{children}</body>
+      <body className={GeistSans.variable} >
+        <Providers>{children}</Providers></body>
     </html>
   );
 }

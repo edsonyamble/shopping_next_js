@@ -32,3 +32,5 @@ axios запрос на сервере
 √ Write configuration to components.json. Proceed? ... yes
 
 add constaants file там есть название сайта и дескриптион которы подключаем на layout tsx
+
+npm install react-hot-toast библиотека для toaster  
