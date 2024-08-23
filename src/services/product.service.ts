@@ -5,6 +5,7 @@ import { API_URL } from '@/config/api.config'
 import { IProduct, IProductInput } from '@/shared/types/product.interface'
 
 class ProductService {
+	// получение всех продуктов
 	async getAll(searchTerm?: string | null) {
 		const { data } = await axiosClassic<IProduct[]>({
 			url: API_URL.products(),
@@ -18,7 +19,7 @@ class ProductService {
 
 		return data || []
 	}
-
+//получение продуктов для конкретного магазина
 	async getByStoreId(id: string) {
 		const { data } = await axiosWithAuth<IProduct[]>({
 			url: API_URL.products(`/by-storeId/${id}`),
@@ -27,7 +28,7 @@ class ProductService {
 
 		return data || []
 	}
-
+//получение продукта по id
 	async getById(id: string) {
 		const { data } = await axiosClassic<IProduct>({
 			url: API_URL.products(`/by-id/${id}`),
@@ -36,7 +37,7 @@ class ProductService {
 
 		return data
 	}
-
+//получение продуктов для конкретной категории
 	async getByCategory(categoryId: string) {
 		const { data } = await axiosClassic<IProduct[]>({
 			url: API_URL.products(`/by-category/${categoryId}`),
@@ -45,7 +46,7 @@ class ProductService {
 
 		return data
 	}
-
+//получение продукт самы популярных
 	async getMostPopular() {
 		const { data } = await axiosClassic<IProduct[]>({
 			url: API_URL.products(`/most-popular`),
@@ -54,7 +55,7 @@ class ProductService {
 
 		return data
 	}
-
+//получение продуктов похожих
 	async getSimilar(id: string) {
 		const { data } = await axiosClassic<IProduct[]>({
 			url: API_URL.products(`/similar/${id}`),
@@ -63,7 +64,7 @@ class ProductService {
 
 		return data
 	}
-
+//	создание продукта
 	async create(data: IProductInput, storeId: string) {
 		const { data: createdProduct } = await axiosWithAuth<IProduct[]>({
 			url: API_URL.products(`/${storeId}`),
@@ -73,7 +74,7 @@ class ProductService {
 
 		return createdProduct
 	}
-
+//	обновление продукта
 	async update(id: string, data: IProductInput) {
 		const { data: updatedProduct } = await axiosWithAuth<IProduct>({
 			url: API_URL.products(`/${id}`),
@@ -83,7 +84,7 @@ class ProductService {
 
 		return updatedProduct
 	}
-
+//	удаление продукта
 	async delete(id: string) {
 		const { data: deletedProduct } = await axiosWithAuth<IProduct>({
 			url: API_URL.products(`/${id}`),

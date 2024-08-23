@@ -42,4 +42,4 @@ npm install react-hot-toast библиотека для toaster
 в types
 config all url backend and frontend 
 inteceptor получение запросы  получение продукт для всех авторизован или нет но получение профил только для авторизован  file api 
-service файл пишем запросы 
+service файл пишем запросы  на сереве 

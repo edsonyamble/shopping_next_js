@@ -5,6 +5,7 @@ import { API_URL } from '@/config/api.config'
 import { ICategory, ICategoryInput } from '@/shared/types/category.interface'
 
 class CategoryService {
+	//получение категори по storeid (магазину)
 	async getByStoreId(id: string) {
 		const { data } = await axiosWithAuth<ICategory[]>({
 			url: API_URL.categories(`/by-storeId/${id}`),
@@ -13,7 +14,7 @@ class CategoryService {
 
 		return data
 	}
-
+//получение категории по id
 	async getById(id: string) {
 		const { data } = await axiosClassic<ICategory>({
 			url: API_URL.categories(`/by-id/${id}`),
@@ -22,7 +23,7 @@ class CategoryService {
 
 		return data
 	}
-
+//	создание категории
 	async create(data: ICategoryInput, storeId: string) {
 		const { data: createdCategory } = await axiosWithAuth<ICategory>({
 			url: API_URL.categories(`/${storeId}`),
@@ -32,7 +33,7 @@ class CategoryService {
 
 		return createdCategory
 	}
-
+//	обновление категории
 	async update(id: string, data: ICategoryInput) {
 		const { data: updatedCategory } = await axiosWithAuth<ICategory>({
 			url: API_URL.categories(`/${id}`),
@@ -42,7 +43,7 @@ class CategoryService {
 
 		return updatedCategory
 	}
-
+//	удаление категории
 	async delete(id: string) {
 		const { data: deletedCategory } = await axiosWithAuth<ICategory>({
 			url: API_URL.categories(`/${id}`),

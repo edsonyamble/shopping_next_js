@@ -9,5 +9,5 @@ export interface IReview {
     user: IUser
 }
 //создать отзывов
-export interface IReviewinput extends Pick<IReview, "rating" | "text"> {
+export interface IReviewInput extends Pick<IReview, "rating" | "text"> {
 }

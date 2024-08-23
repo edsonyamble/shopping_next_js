@@ -18,6 +18,7 @@ type TypeData = {
 }
 
 class OrderService {
+	// создание заказа
 	async place(data: TypeData) {
 		return axiosWithAuth<IPaymentResponse>({
 			url: API_URL.orders('/place'),

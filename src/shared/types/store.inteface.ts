@@ -1,9 +1,9 @@
-export interface Istore{
+export interface IStore{
     id: string
     title: string
     description: string
 }
 //создание
-export interface IstoreCreate extends Pick<Istore, 'title'>{}
+export interface IStoreCreate extends Pick<IStore, 'title'>{}
 //редактирование
-export interface IstoreEdit extends Omit<Istore, 'id'>{}
+export interface IStoreEdit extends Omit<IStore, 'id'>{}

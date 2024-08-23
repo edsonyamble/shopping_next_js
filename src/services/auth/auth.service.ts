@@ -7,6 +7,7 @@ import { IAuthForm, IAuthResponse } from '@/shared/types/auth.interface'
 import { removeFromStorage, saveTokenStorage } from './auth-token.serice'
 
 class AuthService {
+	//registration 
 	async main(type: 'login' | 'register', data: IAuthForm) {
 		const response = await axiosClassic<IAuthResponse>({
 			url: API_URL.auth(`/${type}`),
@@ -19,7 +20,7 @@ class AuthService {
 
 		return response
 	}
-
+//получение токена
 	async getNewTokens() {
 		const response = await axiosClassic<IAuthResponse>({
 			url: API_URL.auth('/login/access-token'),
@@ -31,7 +32,7 @@ class AuthService {
 
 		return response
 	}
-
+//удаление токена logout
 	async logout() {
 		const response = await axiosClassic<boolean>({
 			url: API_URL.auth('/logout'),

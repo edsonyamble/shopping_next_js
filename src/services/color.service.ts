@@ -1,10 +1,18 @@
-import { axiosWithAuth } from '@/api/api.interceptors'
+import { axiosClassic, axiosWithAuth } from '@/api/api.interceptors'
 
 import { API_URL } from '@/config/api.config'
 
 import { IColor, IColorInput } from '@/shared/types/color.interface'
 
 class ColorService {
+// 	async getAll() {
+// 		const { data } = await axiosClassic<IColor[]>({
+// 			url: API_URL.colors(),
+// 			method: 'GET'
+// 		})
+// return data || []
+// 	}
+	//получение цвета для конкретно магазина по id
 	async getByStoreId(id: string) {
 		const { data } = await axiosWithAuth<IColor[]>({
 			url: API_URL.colors(`/by-storeId/${id}`),
@@ -13,7 +21,7 @@ class ColorService {
 
 		return data || []
 	}
-
+//получение цвета по id
 	async getById(id: string) {
 		const { data } = await axiosWithAuth<IColor>({
 			url: API_URL.colors(`/by-id/${id}`),
@@ -22,7 +30,7 @@ class ColorService {
 
 		return data
 	}
-
+//	создание цвета
 	async create(data: IColorInput, storeId: string) {
 		const { data: createdColor } = await axiosWithAuth<IColor>({
 			url: API_URL.colors(`/${storeId}`),
@@ -32,7 +40,7 @@ class ColorService {
 
 		return createdColor
 	}
-
+//	обновление цвета
 	async update(id: string, data: IColorInput) {
 		const { data: updatedColor } = await axiosWithAuth<IColor>({
 			url: API_URL.colors(`/${id}`),
@@ -42,7 +50,7 @@ class ColorService {
 
 		return updatedColor
 	}
-
+//	удаление цвета
 	async delete(id: string) {
 		const { data: deletedColor } = await axiosWithAuth<IColor>({
 			url: API_URL.colors(`/${id}`),

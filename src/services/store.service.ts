@@ -6,9 +6,10 @@ import {
 	IStore,
 	IStoreCreate,
 	IStoreEdit
-} from '@/shared/types/store.interface'
+} from '@/shared/types/store.inteface'
 
 class StoreService {
+	// получение магазина по id
 	async getById(id: string) {
 		const { data } = await axiosWithAuth<IStore>({
 			url: API_URL.stores(`/by-id/${id}`),
@@ -17,7 +18,7 @@ class StoreService {
 
 		return data
 	}
-
+//	создание магазина
 	async create(data: IStoreCreate) {
 		const { data: createdStore } = await axiosWithAuth<IStore>({
 			url: API_URL.stores(''),
@@ -27,7 +28,7 @@ class StoreService {
 
 		return createdStore
 	}
-
+//	обновление магазина
 	async update(id: string, data: IStoreEdit) {
 		const { data: updatedStore } = await axiosWithAuth<IStore>({
 			url: API_URL.stores(`/${id}`),
@@ -37,7 +38,7 @@ class StoreService {
 
 		return updatedStore
 	}
-
+//	удаление магазина
 	async delete(id: string) {
 		const { data: deletedStore } = await axiosWithAuth<IStore>({
 			url: API_URL.stores(`/${id}`),

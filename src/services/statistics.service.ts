@@ -8,6 +8,7 @@ import {
 } from '@/shared/types/statistics.interface'
 
 class StatisticsService {
+	// получение основных статистик
 	async getMain(storeId: string) {
 		const { data } = await axiosWithAuth<IMainStatistics[]>({
 			url: API_URL.statistics(`/main/${storeId}`),
@@ -16,7 +17,7 @@ class StatisticsService {
 
 		return data
 	}
-
+// получение средних статистик
 	async getMiddle(storeId: string) {
 		const { data } = await axiosWithAuth<IMiddleStatistics>({
 			url: API_URL.statistics(`/middle/${storeId}`),
